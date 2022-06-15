@@ -6,6 +6,7 @@
 /* DISEÑO AL LOGO */
 .logoDesktop {
     width: 100px;
+    transform: translate(90px);
 }
 
 .grilla {
@@ -31,28 +32,34 @@
     max-height: 100px;
     justify-content: space-between;
 }
+
 .nav ul {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
     justify-content: center
 }
+
 .nav a {
     color: black;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 800;
 }
+
 .nav a:hover {
     color: rgba(204, 116, 8, 0.555);
 }
+
 .nav li {
     list-style: none;
     padding: 1.5rem;
 }
+
 .nav li:hover {
     background-color: rgba(5, 48, 167, 0.63);
 }
+
 /* DISEÑO AL HEADER */
 .header {
     grid-area: header;
@@ -61,6 +68,7 @@
     align-items: center;
     height: 70vh;
 }
+
 /* DISEÑO AL H1 */
 .header h1 {
     margin: 2rem;
@@ -71,8 +79,10 @@
     letter-spacing: -1px;
     font-size: 2.5rem;
     background-color: #9e9b9b;
-    padding: 1rem;  
+    padding: 1rem;
+    transform: skew(-15deg);
 }
+
 /* DISEÑO AL DIV CON IMAGEN Y PARRAFO */
 .header div {
     display: flex;
@@ -82,6 +92,7 @@
     max-width: 1500px;
     margin: 3rem;
 }
+
 /* DISEÑO AL PARRAFO AL LADO DE LA IMAGEN PRINCIPAL */
 .header div p {
     text-align: center;
@@ -92,28 +103,35 @@
     padding: 1rem;
     background-color: rgba(57, 57, 58, 0.582);
 }
+
 .header img {
     width: 600px;
 }
+
 /* DISEÑO A LA PRIMERA SECCION - IMAGENES CON SERVICIOS */
 .primeraSeccion {
     grid-area: primeraSeccion;
 }
+
 .primeraSeccion div {
     display: flex;
     margin: 4rem;
     flex-direction: column;
     max-width: 350px;
     align-items: center;
+    transform: translate(150px);
 }
+
 .primeraSeccion div:hover {
-    
+    transform: scale(1.15, 1.15)
 }
+
 /* DISEÑO A LOS TITULOS DE LOS SERVICIOS */
 .primeraSeccion div h2 {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
+
 /* DISEÑO A LA SEGUNDA SECCION - HACENOS TU CONSULTA Y BOTON */
 .segundaSeccion {
     grid-area: segundaSeccion;
@@ -122,8 +140,9 @@
     flex-direction: column;
     text-align: center;
     margin: 2rem;
-
+    transform: translate(-150px)
 }
+
 .segundaSeccion button {
     margin: 1rem;
     background-color: rgba(29, 28, 27, 0.829);
@@ -132,9 +151,16 @@
     font-size: large;
     color: #f4f5f8;
     font-weight: 500;
-    border-radius: 15px;    
+    border-radius: 15px;
 }
 
+.segundaSeccion button:focus {
+    transform: scale(1, 1.2);
+    transform: .3s;
+    animation-name: cambioColor;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
 
 /* footer */
 .footer {
@@ -144,51 +170,81 @@
     margin: 1rem;
     font-size: 2rem;
 }
+
 .footer p {
     text-align: center;
 }
+
 .footer img {
     max-height: 2rem;
 }
+
 .footer ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     list-style-type: none;
 }
+
 .footer li {
     padding: 2rem;
 }
 
-/* RESPONSIVE DESIGNE - MEDIA QUERY MOBILE LAST */
-/* MOBILE LAST - MAX WIDTH */
+/* ANIMACIONES */
+@keyframes cambioColor {
+    0% {
+        background-color: rgba(123, 177, 247, 0.644);
 
-@media (max-width: 768px) {
-    .grilla {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-    .nav {
-        flex-direction: column-reverse;
-        padding: .5rem;
-        font-size: 12px;
+
+    25% {
+        background-color: #656ae4;
     }
-    .header {
-        max-height: 50vh;
+
+    50% {
+        background-color: #4f54dace;
     }
-    .header h1 {
-        font-size: 1.5rem;
-        margin: 1rem;
+
+    100% {
+        background-color: #1f141d;
     }
-    .header img {
-        width: 350px;
+
+    /* RESPONSIVE DESIGNE - MEDIA QUERY MOBILE LAST */
+    /* MOBILE LAST - MAX WIDTH */
+
+    @media (max-width: 768px) {
+        .grilla {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .nav {
+            flex-direction: column-reverse;
+            padding: .5rem;
+            font-size: 12px;
+        }
+
+        .header {
+            max-height: 50vh;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            margin: 1rem;
+        }
+
+        .header img {
+            width: 350px;
+        }
+
+        .header div p {
+            font-size: 1.2rem;
+        }
+
+        .segundaSeccion {
+            margin: 3rem;
+        }
+
+        .segundaSeccion button {
+            margin-top: 2rem;
+        }
     }
-    .header div p {
-        font-size: 1.2rem;
-    }
-    .segundaSeccion {
-        margin: 3rem;
-    }
-    .segundaSeccion button {
-        margin-top: 2rem;
-    }
-}
